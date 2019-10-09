@@ -1,0 +1,12 @@
+doctype html
+html
+    head
+        title Weather Web App
+        link(rel='stylesheet', href = '/css/indexStyle.css')
+    body
+        h1 Weather Web App
+        form(method='post')
+            input(type="text", name="city" placeholder="Enter the Name of the City")
+            button(type='submit') Find the Weather
+
+        h3 #{weather}
