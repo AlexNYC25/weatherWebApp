@@ -41,42 +41,56 @@ app.listen(port, host, () => {
     console.log(`server started as ${host} port ${port}`);
 });
 
-const weatherToImage = function(wT){
-    if (wT == "Rain"){
+const weatherToImage = function(weatherTypeString){
+    if (weatherTypeString == "Rain"){
 
     }
-    if (wT == "Thunderstorm"){
+    if (weatherTypeString == "Thunderstorm"){
 
     }
-    if (wT == "Drizzle" ){
+    if (weatherTypeString == "Drizzle" ){
 
     }
-    if (wT == "Snow") {
+    if (weatherTypeString == "Snow") {
 
     }
-    if (wT == "Mist") {
+    if (weatherTypeString == "Mist") {
 
     }
-    if (wT == "Smoke") {
+    if (weatherTypeString == "Smoke") {
 
     }
-    if (wT == "Haze") {
+    if (weatherTypeString == "Haze") {
 
     }
-    if (wT == "Dust"){
+    if (weatherTypeString == "Dust"){
 
     }
-    if (wT == "Fog"){
+    if (weatherTypeString == "Fog"){
 
     }
-    if (wT == "Sand"){
+    if (weatherTypeString == "Sand"){
 
     }
-    if (wT == "Dust"){
+    if (weatherTypeString == "Dust"){
 
     }
-    if (wT == "Ash"){
+    if (weatherTypeString == "Ash"){
 
     }
-    if 
+    if (weatherTypeString == "Squall"){
+
+    }
+    if (weatherTypeString == "Tornado"){
+
+    }
+    if (weatherTypeString == "Clear"){
+
+    }
+    if (weatherTypeString == "Clouds"){
+
+    }
+    else{
+        return null;
+    }
 }
