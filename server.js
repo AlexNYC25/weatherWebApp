@@ -14,7 +14,7 @@ app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-    res.render('index', {weather: null, error: null});
+    res.render('index', {weather: null, imageId:null ,error: null});
 });
 
 app.post('/', (req, res) => {
@@ -23,15 +23,15 @@ app.post('/', (req, res) => {
 
     request(url, (err, response, body) => {
         if(err){
-            res.render('index', {weather: null, error: 'Error, please try again'});
+            res.render('index', {weather: null, imageId:null ,error: 'Error, please try again'});
         } else {
             let weather = JSON.parse(body)
             if (weather.main == undefined){
-                res.render('index', {weather: null, error: 'error'});
+                res.render('index', {weather: null, imageId:null,  error: 'error'});
             } else {
-                let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}!`;
+                let weatherText = `It's ${weather.main.temp} degrees in ${weather.name} and its ${weather.weather[0].main }!`;
                 console.log(weatherText);
-                res.render('index', {weather: weatherText, error: null});
+                res.render('index', {weather: weatherText, imageId:weatherToImage(weather.weather[0].main) ,error: null});
             }
         }
     })
@@ -41,3 +41,42 @@ app.listen(port, host, () => {
     console.log(`server started as ${host} port ${port}`);
 });
 
+const weatherToImage = function(wT){
+    if (wT == "Rain"){
+
+    }
+    if (wT == "Thunderstorm"){
+
+    }
+    if (wT == "Drizzle" ){
+
+    }
+    if (wT == "Snow") {
+
+    }
+    if (wT == "Mist") {
+
+    }
+    if (wT == "Smoke") {
+
+    }
+    if (wT == "Haze") {
+
+    }
+    if (wT == "Dust"){
+
+    }
+    if (wT == "Fog"){
+
+    }
+    if (wT == "Sand"){
+
+    }
+    if (wT == "Dust"){
+
+    }
+    if (wT == "Ash"){
+
+    }
+    if 
+}

@@ -2,11 +2,18 @@ doctype html
 html
     head
         title Weather Web App
-        link(rel='stylesheet', href = '/css/indexStyle.css')
-    body
+        style 
+            include ../css/indexStyle.css
+    body#mainBody
         h1 Weather Web App
         form(method='post')
             input(type="text", name="city" placeholder="Enter the Name of the City")
             button(type='submit') Find the Weather
 
-        h3 #{weather}
+        h3
+            canvas(id="weather-icon" height=12 width=12)
+            h2 #{weather}
+        h2#weatherType #{weatherType}
+
+        script 
+            include ../js/index.js
