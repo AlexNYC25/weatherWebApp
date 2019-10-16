@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
+const weatherVarLib = require('./js/weatherVarLib')
 
 const app = express();
 
@@ -14,7 +15,7 @@ app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-    res.render('index', {weather: null, imageId:null ,error: null});
+    res.render('index', {weather: null ,error: null});
 });
 
 app.post('/', (req, res) => {
@@ -31,7 +32,11 @@ app.post('/', (req, res) => {
             } else {
                 let weatherText = `It's ${weather.main.temp} degrees in ${weather.name} and its ${weather.weather[0].main }!`;
                 console.log(weatherText);
-                res.render('index', {weather: weatherText, imageId:weatherToImage(weather.weather[0].main) ,error: null});
+                //weatherUrl = weatherVarLib.weatherToImage(weather.weather[0].main)
+                let t = weatherVarLib.weatherToImage('Rain');
+                //console.log(weatherUrl)
+                console.log(t)
+                res.render('index', {weather: weatherText ,error: null});
             }
         }
     })
@@ -40,57 +45,3 @@ app.post('/', (req, res) => {
 app.listen(port, host, () => {
     console.log(`server started as ${host} port ${port}`);
 });
-
-const weatherToImage = function(weatherTypeString){
-    if (weatherTypeString == "Rain"){
-
-    }
-    if (weatherTypeString == "Thunderstorm"){
-
-    }
-    if (weatherTypeString == "Drizzle" ){
-
-    }
-    if (weatherTypeString == "Snow") {
-
-    }
-    if (weatherTypeString == "Mist") {
-
-    }
-    if (weatherTypeString == "Smoke") {
-
-    }
-    if (weatherTypeString == "Haze") {
-
-    }
-    if (weatherTypeString == "Dust"){
-
-    }
-    if (weatherTypeString == "Fog"){
-
-    }
-    if (weatherTypeString == "Sand"){
-
-    }
-    if (weatherTypeString == "Dust"){
-
-    }
-    if (weatherTypeString == "Ash"){
-
-    }
-    if (weatherTypeString == "Squall"){
-
-    }
-    if (weatherTypeString == "Tornado"){
-
-    }
-    if (weatherTypeString == "Clear"){
-
-    }
-    if (weatherTypeString == "Clouds"){
-
-    }
-    else{
-        return null;
-    }
-}
