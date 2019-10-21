@@ -15,7 +15,7 @@ app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => {
-    res.render('index', {weather: null ,error: null});
+    res.render('index', {weather: null, urlPic: '../images/clear.jpg' ,error: null});
 });
 
 app.use(express.static(__dirname + '/public'));
@@ -34,11 +34,9 @@ app.post('/', (req, res) => {
             } else {
                 let weatherText = `It's ${weather.main.temp} degrees in ${weather.name} and its ${weather.weather[0].main }!`;
                 console.log(weatherText);
-                //weatherUrl = weatherVarLib.weatherToImage(weather.weather[0].main)
-                let t = weatherVarLib.weatherToImage('Rain');
-                //console.log(weatherUrl)
-                console.log(t)
-                res.render('index', {weather: weatherText ,error: null});
+                weatherUrl = weatherVarLib.weatherToImage(weather.weather[0].main)
+                console.log(weatherUrl)
+                res.render('index', {weather: weatherText, urlPic: weatherUrl ,error: null});
             }
         }
     })
