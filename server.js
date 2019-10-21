@@ -18,6 +18,8 @@ app.get('/', (req, res) => {
     res.render('index', {weather: null ,error: null});
 });
 
+app.use(express.static(__dirname + '/public'));
+
 app.post('/', (req, res) => {
     let city = req.body.city;
     let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;

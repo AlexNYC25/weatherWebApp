@@ -6,15 +6,14 @@ html
             include ../public/css/indexStyle.css
             
     body#mainBody
-        h1 Weather Web App
-        form(method='post')
-            input(type="text", name="city" placeholder="Enter the Name of the City")
-            button(type='submit') Find the Weather
+        div#mainTitle
+            h1 Weather Web App
 
-        h3
-            canvas(id="weather-icon" height=12 width=12)
-            h2 #{weather}
-        h2#weatherType #{weatherType}
+        div#weatherPanel
+            h2 #{weather} 
+            form(method='post')#weatherInput
+                input(type="text", name="city" placeholder="Enter the Name of the City")
+                button(type='submit') Find the Weather
 
-        script 
+        script
             include ../js/index.js
