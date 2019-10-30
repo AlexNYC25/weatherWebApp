@@ -13,4 +13,4 @@ A simple single web page created with nodeJS that used expressJS framework with 
 ## How to use it?
 Simply download the app using the git clone command in your terminal or simply download using the github page
 
-Once downloaded simply run node server.js in the terminal and using your browser go to http://localhost:3000/ to use the app
+Once downloaded add in your apikey from openweather.org into server.js file. Then simply run node server.js in the terminal and using your browser go to http://localhost:3000/ to use the app

@@ -8,7 +8,8 @@ const app = express();
 const port = 3000;
 const host = 'localhost';
 
-const apiKey = 'fc3c85998a2ef0e974db38b35368cb9d';
+// INPORTANT: Before running the program add in ypur apikey from openeathermap.org
+const apiKey = '********************';
 
 app.set('views', './views');
 app.set('view engine', 'pug');
