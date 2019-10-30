@@ -32,10 +32,9 @@ app.post('/', (req, res) => {
             if (weather.main == undefined){
                 res.render('index', {weather: null, imageId:null,  error: 'error'});
             } else {
-                let weatherText = `It's ${weather.main.temp} degrees in ${weather.name} and its ${weather.weather[0].main }!`;
+                let weatherText = `It's ${weather.main.temp} degrees in ${weather.name}`;
                 console.log(weatherText);
                 weatherUrl = weatherVarLib.weatherToImage(weather.weather[0].main)
-                console.log(weatherUrl)
                 res.render('index', {weather: weatherText, urlPic: weatherUrl ,error: null});
             }
         }
