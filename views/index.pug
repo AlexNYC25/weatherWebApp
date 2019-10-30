@@ -13,10 +13,10 @@ html
             h1 Weather Web App
 
         div#weatherPanel
-            h2 #{weather} 
+            h2#weatherString #{weather} 
             form(method='post')#weatherInput
                 input(type="text", name="city" placeholder="Enter the Name of the City")
-                button(type='submit') Find the Weather
+                button(type='submit') Get the Weather
 
         script
             include ../js/index.js
